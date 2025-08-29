@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whac-a-Mole Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🔨 Whac-a-Mole 🔨</h1>
+        
+        <div class="game-info">
+            <div class="info-item">
+                <div class="info-label">Score</div>
+                <div class="info-value" id="score">0</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Time</div>
+                <div class="info-value" id="time">60</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">High Score</div>
+                <div class="info-value" id="highScore">0</div>
+            </div>
+        </div>
+
+        <div class="game-board" id="gameBoard">
+            <div class="hole" data-hole="0">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-hole="1">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-hole="2">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-hole="3">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-hole="4">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-hole="5">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-hole="6">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-hole="7">
+                <div class="mole"></div>
+            </div>
+            <div class="hole" data-hole="8">
+                <div class="mole"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="start-btn" id="startBtn">Start Game</button>
+            <button class="reset-btn" id="resetBtn">Reset</button>
+        </div>
+    </div>
+
+    <div class="game-over" id="gameOverModal">
+        <div class="game-over-content">
+            <h2>Game Over!</h2>
+            <div class="final-score" id="finalScore">Your Score: 0</div>
+            <button class="start-btn" onclick="closeGameOver()">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
