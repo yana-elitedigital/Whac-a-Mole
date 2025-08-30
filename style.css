@@ -308,7 +308,7 @@ body {
 }
 
 .mole.up {
-    transform: translate(-50%, -30%);
+    transform: translate(-20%, -30%);
 }
 
 .mole.up .mole-body {

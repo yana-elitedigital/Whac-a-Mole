@@ -65,8 +65,9 @@ class EpicWhacAMoleGame {
         this.startBtn.addEventListener('click', () => this.startGame());
         this.resetBtn.addEventListener('click', () => this.resetGame());
         
-        this.moles.forEach((mole, index) => {
-            mole.addEventListener('click', () => this.hitMole(index));
+        // Changed to listen for clicks on holes instead of moles
+        this.holes.forEach((hole, index) => {
+            hole.addEventListener('click', () => this.hitHole(index));
         });
 
         // Prevent context menu on right click
@@ -157,7 +158,8 @@ class EpicWhacAMoleGame {
         // Animate mole appearing with Anime.js
         anime({
             targets: mole,
-            translateY: [120, -30],
+            translateX: [0, -20],
+            translateY: [120, -50],
             scale: [0.8, 1.1, 1],
             rotate: [-5, 5, 0],
             duration: 400,
@@ -184,6 +186,7 @@ class EpicWhacAMoleGame {
         // Animate mole hiding
         anime({
             targets: mole,
+            translateX: 0,
             translateY: 120,
             scale: 0.8,
             duration: 300,
@@ -195,7 +198,7 @@ class EpicWhacAMoleGame {
         }
     }
 
-    hitMole(holeIndex) {
+    hitHole(holeIndex) {
         if (!this.isPlaying || this.currentMole !== holeIndex) return;
         
         const mole = this.moles[holeIndex];
@@ -223,6 +226,7 @@ class EpicWhacAMoleGame {
         // Hide the mole with hit animation
         anime({
             targets: mole,
+            translateX: 0,
             translateY: 120,
             scale: [1, 0.5],
             rotate: 360,
