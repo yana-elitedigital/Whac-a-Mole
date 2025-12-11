@@ -1,56 +1,42 @@
-# Whac-a-Mole
-Whac-a-Mole Game
-Game Features:
+# Epic Whac-a-Mole – Next.js Edition
 
-9 holes arranged in a 3x3 grid
-60-second timer with countdown
-Scoring system (10 points per mole hit)
-High score tracking (saved locally)
-Progressive difficulty - moles appear faster as you score more
-Smooth animations for mole popping up and getting hit
-Responsive design that works on mobile devices
+Next.js 14 port of the arcade-style Whac-a-Mole game. The entire experience now lives inside a modern React application with client-side animations powered by Anime.js.
 
-Visual Elements:
+## Tech Stack
+- Next.js 14 (App Router, React 18)
+- Anime.js for complex animations
+- Font Awesome for HUD icons
+- CSS Grid/Flexbox/Keyframes for the futuristic UI
 
-Attractive UI with gradient backgrounds and modern styling
-Realistic mole graphics created with CSS
-3D hole effects with shadows and depth
-Hit animations when moles are struck
-Game over modal with final score display
+## Available Scripts
+- `npm install` – install dependencies
+- `npm run dev` – start the development server on `http://localhost:3000`
+- `npm run build` – create the production build
+- `npm run start` – serve the production build
+- `npm run lint` – run ESLint with the Next.js config
 
-Game Mechanics:
+## Game Features
+- 3x3 arena with interactive holes
+- 60-second timer and combo-based scoring
+- Persistent high score via `localStorage`
+- Progressive difficulty as your score climbs
+- Floating particles, neon HUD, celebratory effects, and responsive layout
 
-Moles randomly appear and disappear
-Click/tap to hit moles while they're visible
-Game gets progressively harder (faster mole spawns)
-Score tracking with persistent high scores
-Full game reset functionality
+## Project Structure
+```
+app/
+  layout.js        // Root layout + global styles
+  page.js          // Home page rendering the game
+assets/
+  css/
+    main.css       // Ported styling imported by the root layout
+  fonts/           // Drop custom fonts here
+  img/             // Place static imagery/screenshots here
+components/
+  EpicWhacAMole.js // Client component with the full game logic
+```
 
-Controls:
-
-Start Game - Begin a new 60-second round
-Reset - Stop current game and reset everything
-Play Again - Restart after game over
-
-🛠️ Technologies & Libraries:
-Core Technologies:
-HTML5 - Structure and layout
-CSS3 - Styling, animations, and responsive design
-JavaScript (ES6+) - Game logic and interactivity
-External Libraries:
-Anime.js (v3.2.1) - Advanced animation library
-
-Used for: Smooth mole animations, particle effects, score popups, modal transitions
-CDN: https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js
-FontAwesome (v6.0.0) - Icon library
-
-Used for: UI icons (play, pause, star, fire, clock, trophy, redo)
-CDN: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
-CSS Features Used:
-CSS Grid - 3x3 game board layout
-Flexbox - HUD layout and responsive design
-CSS Gradients - Background effects and button styling
-CSS Transforms - 3D perspective and animations
-CSS Animations - Floating particles, breathing effects, glow effects
-Backdrop Filter - Glassmorphism effects
-CSS Variables - Through custom properties in animations
+## Notes
+- All DOM-heavy logic is wrapped in a client component so the game still relies on direct element manipulation while benefiting from the Next.js toolchain.
+- Anime.js is installed as an npm dependency (no CDN) so builds remain self-contained.
+- Score persistence logic targets MongoDB. Create a cluster/database, then add `MONGODB_URI` (and optionally `MONGODB_DB`) to your environment to enable the `/api/scores` endpoint.
